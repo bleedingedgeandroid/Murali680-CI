@@ -18,7 +18,8 @@ pipeline {
                     stage('Build') {
                         steps {
                             echo "Building for ${TARGET}-${SU}"
-                            sh 'build.sh ${TARGET} ${SU}'
+                            sh 'chmod +x ./build.sh '
+                            sh './build.sh ${TARGET} ${SU}'
                         }
                     }
                    
