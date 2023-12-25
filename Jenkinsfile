@@ -3,7 +3,7 @@ pipeline {
     stages {
         stage('BuildAndZip') {
             matrix {
-                agent label kernel-builder
+                agent {label 'kernel-builder'}
                 axes {
                     axis {
                         name 'TARGET'
