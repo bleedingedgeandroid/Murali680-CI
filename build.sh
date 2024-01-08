@@ -26,7 +26,6 @@ else
   BUILD_SUFFIX="${BUILD_SUFFIX}-NOSU"
 fi
 
-exit 0
 
 TARGET_CLANG="clang-r450784e"
 TOOLCHAIN_PATHS="/home/jenkins-compile/tools/linux-x86/${TARGET_CLANG}/bin:/home/jenkins-compile/tools/aarch64-linux-android-4.9/bin:/home/jenkins-compile/tools/arm-linux-androideabi-4.9/bin"
@@ -35,6 +34,9 @@ export PATH=${TOOLCHAIN_PATHS}:${PATH}
 
 echo "making defconfig"
 make O=out ARCH=arm64 vendor/spes-perf_defconfig
+cat .config
+exit 0
+
 echo "making kernel"
 make -j$(nproc --all) O=out \
                       ARCH=arm64 \
