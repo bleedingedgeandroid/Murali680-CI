@@ -20,10 +20,13 @@ if [ $2 == "KSU" ]; then
   CONFIG_HAVE_KPROBES=y
   CONFIG_KPROBE_EVENTS=y
   ' >> arch/arm64/configs/vendor/spes-perf_defconfig
+  cat arch/arm64/configs/vendor/spes-perf_defconfig
   curl -LSs "https://raw.githubusercontent.com/tiann/KernelSU/main/kernel/setup.sh" | bash -
 else
   BUILD_SUFFIX="${BUILD_SUFFIX}-NOSU"
 fi
+
+exit 0
 
 TARGET_CLANG="clang-r450784e"
 TOOLCHAIN_PATHS="/home/jenkins-compile/tools/linux-x86/${TARGET_CLANG}/bin:/home/jenkins-compile/tools/aarch64-linux-android-4.9/bin:/home/jenkins-compile/tools/arm-linux-androideabi-4.9/bin"
